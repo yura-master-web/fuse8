@@ -5,8 +5,8 @@ import pug from 'gulp-pug'
 import pugLinter from 'gulp-pug-linter'
 import prettify from 'gulp-jsbeautifier'
 import inheritance from 'gulp-pug-inheritance'
-import changed from 'gulp-changed'
-import cached from 'gulp-cached'
+// import changed from 'gulp-changed'
+// import cached from 'gulp-cached'
 import filter from 'gulp-filter'
 import rename from 'gulp-rename'
 import errorHandler from 'gulp-plumber-error-handler'
@@ -31,17 +31,15 @@ export const templates = () =>
                 errorHandler: errorHandler(`Error in \'templates\' task`),
             }),
         )
-        .pipe(changed('src/assets', {extension: '.html'}))
-        .pipe(cached('templates'))
+        // .pipe(changed('src/assets', {extension: '.html'}))
+        // .pipe(changed('src/assets', {extension: '.html'}))
+        // .pipe(cached('pug'))
         .pipe(
-            gulpIf(
-                global.watch,
-                inheritance({
-                    basedir: 'front',
-                    extension: '.pug',
-                    skip: 'node_modules',
-                }),
-            ),
+            inheritance({
+                basedir: 'front',
+                extension: '.pug',
+                skip: 'node_modules',
+            }),
         )
         .pipe(filter(file => /front[\\/]pages/.test(file.path)))
         .pipe(pug({basedir: 'front', data}))

@@ -14,8 +14,6 @@ const reload = done => {
 }
 
 export const watch = () => {
-    global.watch = true
-
     gulp.watch('front/resources/**/*', gulp.series(copy, reload))
     gulp.watch('front/{styles,blocks}/**/*.styl', gulp.series(styles))
     // gulp.watch('front/{styles,blocks}/**/*.css', gulp.series(buildTailwind))

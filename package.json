@@ -9,7 +9,7 @@
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "start": "cross-env WEBPACK_WATCH=true LAOUTS=true gulp default --inspect --watch-poll",
-    "make-block": "babel-node make-block.js",
+    "make-block": "cross-env LAOUTS=true babel-node make-block.js",
     "prettier-html": "./node_modules/.bin/prettier --write --html-whitespace-sensitivity ignore --print-width 180 public/dist/*.html"
   },
   "dependencies": {

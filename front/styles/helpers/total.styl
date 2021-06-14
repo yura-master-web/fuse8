@@ -3,12 +3,13 @@ base-font()
     font-size $font-size-base
     line-height $line-height-base
 
+/*
 .ffr
     font-family Roboto
 
 .ff-base
     font-family $font-family-base
-
+*/
 for $cl, $cr in $brand-colors
     .cl-{$cl}
         color map-get($colors, $cl)
@@ -24,3 +25,6 @@ for $cl, $cr in $brand-colors
 
     $str = slice($str, 0, -1)
     return $str
+
+.ovh
+    overflow hidden
