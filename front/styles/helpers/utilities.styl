@@ -1,0 +1,117 @@
+// These styles are applied to a <meta> tag, which is read by MediaQuery module
+.aero-mq
+    font-family -ae-map-serialize($grid-breakpoints)
+
+// These styles are applied to a <meta> tag on ui pages to help visualize project colors
+.cl-base
+    font-family -ae-map-serialize($base-colors)
+
+// These styles are applied to a <meta> tag on ui pages to help visualize project colors
+.cl-brand
+    font-family -ae-map-serialize($brand-colors)
+
+for $breakpoint in keys($grid-breakpoints)
+    +media-breakpoint-up($breakpoint)
+        $infix = breakpoint-infix($breakpoint, $grid-breakpoints)
+
+        .tx{$infix}-a-l
+            text-align left
+
+        .tx{$infix}-a-r
+            text-align right
+
+        .tx{$infix}-a-c
+            text-align center
+
+.upcs
+    text-transform uppercase
+
+.lwcs
+    text-transform lowercase
+
+.tdn
+    text-decoration none
+
+.ws
+    &-nw
+        white-space nowrap
+
+.pos
+    &-rel
+        position relative
+
+    &-abs
+        position absolute
+
+    &-st
+        position static
+
+.is-hidden
+    display none
+
+.tx-els
+    display block
+    overflow hidden
+    white-space nowrap
+    text-overflow ellipsis
+
+.border-box
+    box-sizing border-box
+
+for $cl, $cr in $colors
+    .cl-{$cl}
+        color map-get($colors, $cl)
+
+    .bg-{$cl}
+        background-color map-get($colors, $cl)
+
+.cl-i
+    color inherit
+
+clearfix()
+    // scss-lint:disable PropertySpelling
+    zoom 1
+
+    // scss-lint:enable PropertySpelling
+    &::before, &::after
+        display table
+        content ' '
+
+    &::after
+        clear both
+
+$rotates = {
+    '0': 0,
+    '90': 90deg,
+    '180': 180deg
+}
+
+.rotate
+    &-c
+        for $name, $prop in $rotates
+            &-{$name}
+                transform rotate($prop)
+
+    &-cc
+        for $name, $prop in $rotates
+            &-{$name}
+                transform rotate($prop * -1)
+
+.clearfix
+    clearfix()
+
+// Hiding elements while at the same time make them accessible.
+.vhidden
+    position absolute
+    margin -1px
+    padding 0
+    overflow hidden
+    clip rect(0 0 0 0)
+    clip rect(0, 0, 0, 0)
+    width 1px
+    height 1px
+
+// scss-lint:disable DuplicateProperty
+// scss-lint:enable DuplicateProperty
+.hidden-block
+    display none

@@ -1,0 +1,12 @@
+extends /blocks/layout-default/layout-default.pug
+include /blocks/icon/icon
+
+block head
+    - var pageTitle = 'Главная страница'
+
+block content
+    h1#isn.cla hello world 10
+    +icon('add', 'block').add
+
+    .container
+        .row

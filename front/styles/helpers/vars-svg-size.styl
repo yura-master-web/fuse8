@@ -1,0 +1,11 @@
+$add = 24px 24px
+
+/* stylelint-disable stylus/declaration-colon */
+svgSize($icon)
+    width: $icon[0]
+    height: $icon[1]
+
+minSize($icon, $size)
+    $icon[0] = $icon[0] - $size
+    $icon[1] = $icon[1] - $size
+    return $icon

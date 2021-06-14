@@ -1,0 +1,13 @@
+include /../node_modules/bemto.pug/bemto.pug
+include ../jade-injected/jade-injected.pug
+include ../page/page.pug
+include ../scripts/scripts.pug
+
+doctype html
+html(lang="ru")
+    include ../head/head
+    +page
+        //- Добавить header
+        block content
+        //- Добавить footer
+        +scripts(['app.min.js'])

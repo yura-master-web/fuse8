@@ -1,0 +1,48 @@
+for $breakpoint in keys($grid-breakpoints)
+    +media-breakpoint-up($breakpoint)
+        .pull-{$breakpoint}-left
+            pull-left()
+
+        .pull-{$breakpoint}-right
+            pull-right()
+
+        .pull-{$breakpoint}-none
+            float none
+
+for $bp in keys($grid-breakpoints)
+    .hidden-{$bp}-up
+        +media-breakpoint-up($bp)
+            display none
+
+    .hidden-{$bp}-down
+        +media-breakpoint-down($bp)
+            display none
+
+    .hidden-{$bp}-only
+        +media-breakpoint-only($bp)
+            display none
+
+// Print utilities
+// 
+// Media queries are placed on the inside to be mixin-friendly.
+.visible-print-block
+    display none
+
+    @media print
+        display block
+
+.visible-print-inline
+    display none
+
+    @media print
+        display inline
+
+.visible-print-inline-block
+    display none
+
+    @media print
+        display inline-block
+
+.hidden-print
+    @media print
+        display none

@@ -1,0 +1,54 @@
+// scss-lintdisable ImportantRule
+// scss-lintdisable SingleLinePerProperty
+
+// 
+// Utilities for common `display` values
+// 
+
+// Получаем ключи из массива xs, sm, md
+for $breakpoint in keys($grid-breakpoints)
+    +media-breakpoint-up($breakpoint)
+        $infix = breakpoint-infix($breakpoint, $grid-breakpoints)
+
+        .d{$infix}-none
+            display none
+
+        .d{$infix}-inline
+            display inline
+
+        .d{$infix}-inline-block
+            display inline-block
+
+        .d{$infix}-block
+            display block
+
+        .d{$infix}-flex
+            display flex
+
+        .d{$infix}-inline-flex
+            display inline-flex
+
+// 
+// Utilities for toggling `display` in print
+// 
+.d-print-block
+    display none
+
+    @media print
+        display block
+
+.d-print-inline
+    display none
+
+    @media print
+        display inline
+
+.d-print-inline-block
+    display none
+
+    @media print
+        display inline-block
+
+.d-print-none
+    @media print
+        display none

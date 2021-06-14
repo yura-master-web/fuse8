@@ -1,0 +1,342 @@
+// Clear the float on any element.
+clearfix()
+    &:after
+        display table
+        clear both
+        content ''
+
+// Fix no working `-webkit-text-size-adjust: 100%;` in Android.
+fix-text-size-adjust()
+    background-image linear-gradient(transparent, transparent)
+
+// Set element size
+size($width, $height = $width)
+    width $width
+    height $height
+
+// Set margin on left & right
+margin-x($margin)
+    margin-right $margin
+    margin-left $margin
+
+// Set margin on top & bottom
+margin-y($margin)
+    margin-top $margin
+    margin-bottom $margin
+
+// Set pading on left & right
+padding-x($padding)
+    padding-right $padding
+    padding-left $padding
+
+// Set padding on top & bottom
+padding-y($padding)
+    padding-top $padding
+    padding-bottom $padding
+
+// Set one static retina image
+retinaBackground($image, $ext = 'png')
+    background-image url('../images/' + $image + '.' + $ext)
+
+    @media (-webkit-min-device-pixel-ratio 2), (min-resolution 192dpi)
+        background-image url('../images/' + $image + '@2x.' + $ext)
+
+// scss-lint:disable ImportantRule
+
+// Hide text
+// @include hide-text;
+hide-text()
+    display block
+    overflow hidden
+    text-indent -9000px
+
+// An easy way to truncate text with an ellipsis. Requires the element to be block or inline-block.
+text-truncate()
+    overflow hidden
+    white-space nowrap
+    text-overflow ellipsis
+
+pull-left()
+    float left
+
+pull-right()
+    float right
+
+hover()
+    if ($enable-hover-media-query)
+        // See Media Queries Level 4: http://drafts.csswg.org/mediaqueries/#hover
+        // Currently shimmed by https://github.com/twbs/mq4-hover-shim
+        @media (hover hover)
+            &:hover
+                {block}
+    else
+        &:hover
+            {block}
+
+hover-focus()
+    if ($enable-hover-media-query)
+        &:focus
+            {block}
+
+        +hover()
+            {block}
+    else
+        &:focus, &:hover
+            {block}
+
+// При разработке уточнить для мобилы (hover) не отрабатывает, а только focus
+plain-hover-focus()
+    if ($enable-hover-media-query)
+        &:focus
+            {block}
+
+        +hover()
+            {block}
+    else
+        &:focus, &:hover
+            {block}
+
+// При $enable-hover-media-query = true нет залипания hover
+hover-focus-active()
+    if ($enable-hover-media-query)
+        &:focus, &:active
+            {block}
+
+        +hover()
+            {block}
+    else
+        &:focus, &:active, &:hover
+            {block}
+
+background-gradient($start-color, $end-color, $orientation = 'horizontal')
+    background $start-color
+
+    if ($orientation == 'vertical')
+        background linear-gradient(to bottom, $start-color, $end-color)
+    else if ($orientation == 'horizontal')
+        background linear-gradient(to right, $start-color, $end-color)
+    else
+        background radial-gradient(ellipse at center, $start-color, $end-color)
+
+center-block()
+    margin-right auto
+    margin-left auto
+    display block
+
+center-both()
+    position absolute
+    top 50%
+    left 50%
+    transform translate(-50%, -50%)
+
+center-h($height)
+    position absolute
+    top 50%
+
+    margin-top - ($height / 2)
+
+    height $height
+
+center-v($width)
+    position absolute
+    left 50%
+
+    margin-left - ($width / 2)
+
+    width $width
+
+center-h--unk()
+    position relative
+    top 50%
+    transform translateY(-50%)
+
+.clearfix
+    // scss-lint:disable PropertySpelling
+    zoom 1
+
+    // scss-lint:enable PropertySpelling
+    &::before, &::after
+        display table
+        content ' '
+
+    &::after
+        clear both
+
+font-face($font-name, $file-name, $font-name-space, $font-name-no-space, $weight = normal, $style = normal)
+    @font-face
+        font-family $font-name
+        font-weight $weight
+        font-style $style
+        font-display swap
+        src:
+            url($file-name + '.woff2') format('woff2'),
+            url($file-name + '.woff') format('woff'),
+            url($file-name + '.ttf') format('truetype')
+
+// url($file-name + '.woff2') format('woff2'),
+// url($file-name + '.eot?#iefix') format('embedded-opentype'),
+// url($file-name + '.svg#' + $font-name-no-space + '') format('svg')
+
+// / Remove the unit of a length
+// / @param {Number} $number - Number to remove unit from
+// / @return {Number} - Unitless number
+strip-unit($number)
+    // если это 32 или 32px
+    if (typeof($number) == 'unit')
+        unit($number, '')
+    else
+        unit(convert(unquote($number)), '')
+
+// unitless имеет ли число еденицы измерения sass
+
+// Переводит в rem
+// 60rem -> 60rem or '60rem' -> 60rem
+// 60px -> 3.3333rem or '60px' -> 3.3333rem
+px2rem($px)
+    // number
+    if (typeof($px) == 'unit')
+        if (unit($px) == 'rem')
+            $px
+        else
+            unit(($px / $font-size-root), 'rem')
+    else
+        if (unit(convert(unquote($px))) == 'rem')
+            convert(unquote($px))
+        else
+            unit((convert(unquote($px)) / $font-size-root), 'rem')
+
+rem2px($rem)
+    if (typeof($rem) == 'unit')
+        if (unit($rem) == 'px')
+            $rem
+        else
+            round(unit($rem * $font-size-root, 'px'))
+    else
+        if (unit(convert(unquote($rem))) == 'px')
+            convert(unquote($rem))
+        else
+            round(unit(convert(unquote($rem)) * $font-size-root, 'px'))
+
+px2vw($px, $breakpoint)
+    unit(($px * 100 / $breakpoint), 'vw')
+
+// / Given a font size in pixels, reproduces that font size in rems.
+// / @access public
+// / @param {Length} $size - Font size
+// / @example scss - Usage
+// /   .foo {
+// /     @include font-size(16px);
+// /   }
+// / @example css - Result
+// /   .foo {
+// /     font-size: 16px;
+// /     font-size: 1rem;
+// /   }
+m-font-size($size)
+    font-size unit(strip-unit($size), 'px')
+    font-size unit((strip-unit($size) / $font-size-root), 'rem')
+
+// scss-lint:disable DuplicateProperty
+// scss-lint:enable DuplicateProperty
+
+// / Forces browsers to use hardware acceleration for transforms
+// / @access public
+// / @example scss - Usage
+// /   .foo {
+// /     @include ha;
+// /   }
+// / @example css - Result
+// /   .foo {
+// /     transform: translate3d(0, 0, 0);
+// /   }
+ha()
+    transform translate3d(0, 0, 0)
+
+// / Generates line-height values in both pixels and rems.
+// / @access public
+// / @param {Number} $height-value [12] - Height value
+// / @example scss - Usage
+// /   .foo {
+// /     @include line-height(16);
+// /   }
+// / @example css - Result
+// /   .foo {
+// /     line-height: 16px;
+// /     line-height: 1rem;
+// /   }
+m-line-height($height-value = 12)
+    line-height unit($height-value, 'px') // fallback for old browsers
+    line-height unit(1 / ($font-size-root / ($font-size-root * 0 + 1)) * $height-value, 'rem')
+
+// scss-lint:disable DuplicateProperty
+// scss-lint:enable DuplicateProperty
+
+// Generate additional media query for retina monitors
+retina-background($width, $height, $image, $ext = 'png')
+    width $width
+    height $height
+    background-image url('../images/' + $image + '.' + $ext)
+    background-repeat no-repeat
+    background-size $width $height
+
+    // background-position: left top;
+    @media only screen and (-webkit-min-device-pixel-ratio 1.5), only screen and (min-resolution 144dpi), (-webkit-min-device-pixel-ratio 144), (min-resolution 144dppx)
+        background-image url('../images/' + $image + '@2x.' + $ext)
+
+// Vertical centering of unknown
+vertical-centering()
+    // white-space: nowrap;
+    &::before
+        margin-right -.25em
+        display inline-block
+        height 100%
+        vertical-align middle
+        content ''
+
+    >
+        display inline-block
+        vertical-align middle
+
+// Spread inline-block elements horizontally
+// May be needed to add line-height 0 on the container to prevent extra space
+// or specify a fixed height on the container
+spread-horizontally()
+    text-align justify
+
+    &::after
+        display inline-block
+        width 100%
+        content ''
+
+    // &::before {
+    // content: '';
+    // display: block;
+    // margin-top: -1.25em;
+    // }
+    > *
+        display inline-block
+
+.visuallyhidden
+    position absolute
+    margin -1px
+    padding 0
+    overflow hidden
+    clip rect(0 0 0 0)
+    width 1px
+    height 1px
+    border none
+
+// / Converts sass-map to a URL-encoded string, like this: `key1=value1&key2=value2`. The value is then dropped into the CSS for a special `<meta>` tag, which is then can be read by js. This is how we transfer values from Sass to JavaScript, so they can be defined in one place.
+// / @access private
+// /
+// / @param {Map} $map - Map to convert.
+// /
+// / @returns {String} A string containing the map's contents.
+-ae-map-serialize($map)
+    $str = ''
+
+    for $key, $value in $map
+        $str = $str + $key + '=' + $value + '&'
+
+    $str = slice($str, 0, -1)
+    return $str
