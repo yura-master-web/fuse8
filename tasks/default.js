@@ -25,6 +25,8 @@ gulp.task(
     ),
 )
 
+gulp.task('templates', gulp.series(styles, icons, templates))
+
 gulp.task('build-vue', gulp.series(prettierCss))
 
 // gulp.task(

@@ -11,7 +11,7 @@ mixin card-sale(obj)
                 +card-label(obj.label)
 
             +e.wrap-text.d-xs-block
-                +e('h2').title.fw-b #{ obj.title } <br />
-                +e('p').text_title #{ obj.address }
-                +e('p').text_price #{ obj.project } <span>#{ obj.price }</span>
-                +e('p').av #{ obj.available }
+                +e.title.fw-b.d-xs-block #{ obj.title } <br />
+                +e.text_title.d-xs-block #{ obj.address }
+                +e.text_price.d-xs-block #{ obj.project } <span>#{ obj.price }</span>
+                +e.av.d-xs-block #{ obj.available }

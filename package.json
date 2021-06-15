@@ -9,6 +9,8 @@
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "start": "cross-env WEBPACK_WATCH=true LAOUTS=true gulp default --inspect --watch-poll",
+    "templates": "cross-env WEBPACK_WATCH=true LAOUTS=true gulp templates",
+    "production": "npm-run-all templates prettier-html",
     "make-block": "cross-env LAOUTS=true babel-node make-block.js",
     "prettier-html": "./node_modules/.bin/prettier --write --html-whitespace-sensitivity ignore --print-width 180 src/assets/*.html"
   },
@@ -84,6 +86,7 @@
     "gulp.spritesmith-multi": "3.1.0",
     "jade-get-data": "^1.0.1",
     "jquery": "^3.6.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
     "pug": "^3.0.2",
     "require-dir": "^1.2.0",
