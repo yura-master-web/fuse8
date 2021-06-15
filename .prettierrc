@@ -12,7 +12,7 @@
     "pugSingleQuote": false,
     "pugWrapAttributesThreshold": 3,
     "pugClassNotation": "as-is",
-    "pugBracketSpacing": true,
+    "pugBracketSpacing": "true",
     "pugSortAttributesBeginning": [
         "^cols$",
         "^v-else$",
