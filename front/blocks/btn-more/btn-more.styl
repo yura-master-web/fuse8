@@ -1,0 +1,23 @@
+.btn-more
+    padding 12px 30px
+    font-size 16px
+    line-height 24px
+    letter-spacing -.3px
+    color inherit
+    background-color #fff
+    border 1px solid colors('gray-border')
+    border-radius 25px
+
+    &__icon
+        top 3px
+        left 0
+        margin-left 10px
+        transition left .3s
+        stroke colors('black')
+        stroke-width 2
+        fill none
+
+        svgSize($chevron)
+
+        ~/:hover &
+            left 5px

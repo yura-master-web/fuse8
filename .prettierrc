@@ -72,6 +72,12 @@
             "options": {
                 "printWidth": 80
             }
+        },
+        {
+            "files": ["front/**/*.pug"],
+            "options": {
+                "printWidth": 80
+            }
         }
     ]
 }

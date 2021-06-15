@@ -1,21 +1,21 @@
 extends /blocks/layout-default/layout-default.pug
 include /blocks/icon/icon
+include /blocks/filter/filter
+include /blocks/cards-sales/cards-sales
+include /blocks/btn-more/btn-more
 
 block head
     - var pageTitle = 'Главная страница'
 
 block content
-    .section.ovh
+    +b.section.main-wrapper.ovh
         .container
-            +main-title.tx-xs-a-c
+            +main-title
                 | Our Latest Developments
 
-    //- h1#isn.cla hello world 10
-    //- +icon('add', 'block').add
+            +filter
 
-    //- .container
-    //-     .row
-    //-         .col-xs-6
-    //-             p Hello
-    //-         .col-xs-6
-    //-             p Hello
+            +cards-sales(getData('cards-sales'))
+
+            .tx-xs-center.w-100.mt-xs-6.d-xs-flex.justify-content-xs-center
+                +btn-more('See more')

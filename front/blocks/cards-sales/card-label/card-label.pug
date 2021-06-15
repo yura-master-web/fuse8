@@ -1,0 +1,6 @@
+mixin card-label(obj)
+    +b('p').card-label(
+        class=obj.type === 'IndependentLiving' ? '_blue' : '_orange',
+        class="pos-abs fw-b"
+    )&attributes(attributes)
+        | #{ obj.text }

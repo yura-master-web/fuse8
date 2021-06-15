@@ -1,0 +1,12 @@
+mixin card-sale(obj)
+    +b('a').card-sale.d-xs-block(href=jv0)&attributes(attributes)
+        +e.content.d-xs-block
+            +e.wrap-img.pos-rel.ovh.d-xs-flex.justify-content-xs-center
+                +e('img').img(src=obj.img)
+                +card-label(obj.label)
+
+            +e.wrap-text.d-xs-block
+                +e('h2').title.fw-b #{ obj.title } <br />
+                +e('p').text_title #{ obj.address }
+                +e('p').text_price #{ obj.project } <span>#{ obj.price }</span>
+                +e('p').av #{ obj.available }

@@ -1,0 +1,38 @@
+[
+    {
+        "img": "https://via.placeholder.com/564x233/AA0000/FFFFFF?text=img1",
+        "label": {
+            "text": "Independent living",
+            "type": "IndependentLiving"
+        },
+        "title": "Brunlees Court",
+        "address": "19-23 Cambridge Road, Southport",
+        "project": "New Properties for Sale from",
+        "price": "214,999",
+        "available": "Shared Ownership Available"
+    },
+    {
+        "img": "https://via.placeholder.com/564x233/00AA00/FFFFFF?text=img2",
+        "label": {
+            "text": "Independent living",
+            "type": "IndependentLiving"
+        },
+        "title": "Charlotte Court",
+        "address": "19-23 Cambridge Road, Southport",
+        "project": "New Properties for Sale from",
+        "price": "214,999",
+        "available": "Shared Ownership Available"
+    },
+    {
+        "img": "https://via.placeholder.com/564x233/0000AA/FFFFFF?text=img3",
+        "label": {
+            "text": "Restaurant & Support available",
+            "type": "SupportAvailable"
+        },
+        "title": "Grove Court",
+        "address": "19-23 Cambridge Road, Southport",
+        "project": "New Properties for Sale from",
+        "price": "214,999",
+        "available": "Shared Ownership Available"
+    }
+]

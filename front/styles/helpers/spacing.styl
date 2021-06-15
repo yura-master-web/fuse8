@@ -1,0 +1,58 @@
+// Margin and Padding
+$mp = {
+    margin: 'm',
+    padding: 'p'
+}
+
+for $breakpoint in keys($grid-breakpoints)
+    +media-breakpoint-up($breakpoint)
+        $infix = breakpoint-infix($breakpoint, $grid-breakpoints)
+
+        for $prop, $abbrev in $mp
+            for $size, $length in $spacers
+                .{$abbrev}{$infix}-{$size}
+                    {$prop} $length
+
+                .{$abbrev}t{$infix}-{$size}
+                    {$prop}-top $length
+
+                .{$abbrev}r{$infix}-{$size}
+                    {$prop}-right $length
+
+                .{$abbrev}b{$infix}-{$size}
+                    {$prop}-bottom $length
+
+                .{$abbrev}l{$infix}-{$size}
+                    {$prop}-left $length
+
+                .{$abbrev}x{$infix}-{$size}
+                    {$prop}-right $length
+                    {$prop}-left $length
+
+                .{$abbrev}y{$infix}-{$size}
+                    {$prop}-top $length
+                    {$prop}-bottom $length
+
+        // Some special margin utils
+        .m{$infix}-auto
+            margin auto
+
+        .mt{$infix}-auto
+            margin-top auto
+
+        .mr{$infix}-auto
+            margin-right auto
+
+        .mb{$infix}-auto
+            margin-bottom auto
+
+        .ml{$infix}-auto
+            margin-left auto
+
+        .mx{$infix}-auto
+            margin-right auto
+            margin-left auto
+
+        .my{$infix}-auto
+            margin-top auto
+            margin-bottom auto

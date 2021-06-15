@@ -14,7 +14,7 @@ import getData from 'jade-get-data'
 import staticHash from 'gulp-static-hash'
 
 const data = {
-    getData: getData('app/data'),
+    getData: getData('front/data'),
     jv0: 'javascript:void(0);',
     // prettier-ignore
     // '"jv0"': 'javascript:void(0);',

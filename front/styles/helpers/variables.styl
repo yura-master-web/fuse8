@@ -9,66 +9,29 @@ $grid-breakpoints = {
     sl: 1520px
 }
 $base-colors = {
-    bl: #000,
+    green: #45852d,
+    blue: #006f79,
+    orange: #ec6608,
     white: #fff,
-    black: #262626,
-    orangered: #ff6e00,
-    blue: #00affa,
-    red: #ff4b4b
-}
-$shade-colors = {
-    white-shade-1: #f4f5f5,
-    white-shade-2: #e7e7e7,
-    white-shade-3: #d3d3d3,
-    white-shade-4: #9a9a9a,
-    white-shade-5: #818181,
-    white-shade-6: #707070
-}
-$black-shade-colors = {
-    black-shade-1: #303030,
-    black-shade-2: #4c4c4c,
-    black-shade-3: #4d4d4d,
-    black-shade-4: #131313,
-    black-shade-5: #1d1d1b
-}
-$blue-shade-colors = {
-    blue-shade-1: #00deff,
-    blue-shade-2: #00ccf0,
-    blue-shade-3: #00b8ff,
-    blue-shade-4: #242f46
-}
-$orange-shade-colors = {
-    orange: #fb9d56
+    black: #363636,
+    gray: #f8f8f8,
+    gray-border: #d8d8d8
 }
 $list-colors = {
     accent: map-get($base-colors, 'orangered'),
-    accent-hover: map-get($base-colors, 'orangered'),
-    second-color: map-get($shade-colors, 'white-shade-1'),
-    text: map-get($black-shade-colors, 'black-shade-3'),
-    text-l: map-get($shade-colors, 'white-shade-3'),
-    text-m: map-get($shade-colors, 'white-shade-4'),
-    white: map-get($base-colors, 'white'),
-    error: map-get($base-colors, 'red')
+    accent-hover: map-get($base-colors, 'orangered')
 }
-// $secondary-colors = {
-// 'border': map-get($base-colors, 'lightpurple'),
-// 'error': map-get($base-colors, 'red'),
-// }
 $colors = $list-colors
 $colors = merge($colors, $base-colors)
-// $colors = merge($colors, $secondary-colors)
-$colors = merge($colors, $shade-colors)
-$colors = merge($colors, $black-shade-colors)
-$colors = merge($colors, $blue-shade-colors)
-$colors = merge($colors, $orange-shade-colors)
 $brand-colors = {
     accent: map-get($base-colors, 'orangered'),
     accent-hover: map-get($base-colors, 'orangered'),
-    second-color: map-get($shade-colors, 'white-shade-1'),
-    text: map-get($black-shade-colors, 'black-shade-3'),
-    text-l: map-get($shade-colors, 'white-shade-3'),
-    text-m: map-get($shade-colors, 'white-shade-4'),
-    white: map-get($base-colors, 'white'),
-    error: map-get($base-colors, 'red'),
-    black: map-get($base-colors, 'bl')
+    title: map-get($base-colors, 'green')
 }
+
+/*
+label-blue: map-get($base-colors, 'blue'),
+label-orange: map-get($base-colors, 'orange')
+*/
+colors($color)
+    return map-get($colors, $color)
