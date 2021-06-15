@@ -1,6 +1,6 @@
 [
     {
-        "img": "https://via.placeholder.com/564x233/AA0000/FFFFFF?text=img1",
+        "img": "https://via.placeholder.com/564x233/AA0000/FFFFFF?text=img 1",
         "label": {
             "text": "Independent living",
             "type": "IndependentLiving"
@@ -12,7 +12,7 @@
         "available": "Shared Ownership Available"
     },
     {
-        "img": "https://via.placeholder.com/564x233/00AA00/FFFFFF?text=img2",
+        "img": "https://via.placeholder.com/564x233/00AA00/FFFFFF?text=img 2",
         "label": {
             "text": "Independent living",
             "type": "IndependentLiving"
@@ -24,7 +24,7 @@
         "available": "Shared Ownership Available"
     },
     {
-        "img": "https://via.placeholder.com/564x233/0000AA/FFFFFF?text=img3",
+        "img": "https://via.placeholder.com/564x233/0000AA/FFFFFF?text=img 3",
         "label": {
             "text": "Restaurant & Support available",
             "type": "SupportAvailable"

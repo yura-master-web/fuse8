@@ -3,14 +3,24 @@
     text-decoration none
     color inherit
 
+    +media-breakpoint-down('sm')
+        margin-bottom 20px
+
+    +media-breakpoint-down('xs')
+        margin-bottom 10px
+
     &__content
         border 1px solid colors('gray-border')
 
     &__wrap-img
-        height 18vh
+        height 42vw
         font-size 0
 
+        +media-breakpoint-up('sm')
+            height 188px
+
     &__img
+        width auto
         max-width none
 
     &__wrap-text

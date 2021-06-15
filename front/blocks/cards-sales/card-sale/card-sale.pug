@@ -2,7 +2,12 @@ mixin card-sale(obj)
     +b('a').card-sale.d-xs-block(href=jv0)&attributes(attributes)
         +e.content.d-xs-block
             +e.wrap-img.pos-rel.ovh.d-xs-flex.justify-content-xs-center
-                +e('img').img(src=obj.img)
+                +e('img').img(
+                    src=obj.img,
+                    loading="lazy",
+                    width="455",
+                    height="188"
+                )
                 +card-label(obj.label)
 
             +e.wrap-text.d-xs-block
