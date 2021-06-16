@@ -9,7 +9,7 @@
             <a class="btn-more fw-b tdn" href="javascript:void(0);">
                 See more
                 <svg class="btn-more__icon pos-rel">
-                    <use xlink:href="/images/icon.svg#icon_chevron"></use>
+                    <use :href="'images/icon.svg#icon_chevron' | imgPath"></use>
                 </svg>
             </a>
         </div>
