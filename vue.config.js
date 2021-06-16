@@ -5,7 +5,7 @@ module.exports = {
     productionSourceMap: process.env.NODE_ENV !== 'production',
     lintOnSave: 'warning',
 
-    publicPath: '/',
+    publicPath: typeof process.env.VUE_APP_GH_PAGES === 'undefined' ? '/' : '',
 
     configureWebpack: {
         plugins: [

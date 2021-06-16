@@ -25,7 +25,7 @@ const routes = routerOptions.map(route => {
 })
 
 const router = new VueRouter({
-    mode: 'history',
+    mode: typeof process.env.VUE_APP_GH_PAGES === 'undefined' ? 'history' : '',
     base: process.env.BASE_URL,
     routes,
 })
@@ -33,3 +33,6 @@ const router = new VueRouter({
 Vue.use(VueRouter)
 
 export default router
+
+// http-server -p 8080 ./dist -o http://localhost:8080/index.html
+// http-server -c-1 -f /index.html

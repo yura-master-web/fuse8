@@ -9,7 +9,7 @@ Vue.config.productionTip = false
 Vue.mixin({
     filters: {
         price: price => new Intl.NumberFormat('ja-JP').format(price),
-        imgPath: url => '/' + url,
+        imgPath: url => (typeof process.env.VUE_APP_GH_PAGES === 'undefined' ? '/' + url : url),
     },
 })
 
