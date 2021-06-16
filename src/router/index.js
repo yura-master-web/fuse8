@@ -26,6 +26,7 @@ const routes = routerOptions.map(route => {
 
 const router = new VueRouter({
     mode: typeof process.env.VUE_APP_GH_PAGES === 'undefined' ? 'history' : '',
+
     base: process.env.BASE_URL,
     routes,
 })
