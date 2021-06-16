@@ -53,6 +53,7 @@ export const prettierCss = () =>
         .pipe(
             purgecss({
                 content: ['dist/*.html', 'dist/js/*.js'],
+                css: ['*:focus', '*:active', '*:hover'],
             }),
         )
         .pipe(
