@@ -3,7 +3,7 @@ import mutations from '@/store/mutations'
 
 const {FETCH_CARDS} = mutations
 
-const cntViews = {
+const salesCards = {
     namespaced: true,
     state: {
         cards: {},
@@ -26,13 +26,12 @@ const cntViews = {
         async fetchCards({commit}) {
             try {
                 const res = await Sale.fetchCards()
-                console.log('res:', res)
                 commit(FETCH_CARDS, res)
             } catch (err) {
-                console.warn(err)
+                // console.warn(err)
             }
         },
     },
 }
 
-export default cntViews
+export default salesCards

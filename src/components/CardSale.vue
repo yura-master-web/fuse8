@@ -1,5 +1,5 @@
 <template>
-    <a class="card-sale d-xs-block col-lg-4 col-sm-6 col-xs-12" href="javascript:void(0);">
+    <router-link class="card-sale d-xs-block col-lg-4 col-sm-6 col-xs-12" :to="`/details/${card.id}`">
         <span class="card-sale__content d-xs-block">
             <span class="card-sale__wrap-img pos-rel ovh d-xs-flex justify-content-xs-center">
                 <img
@@ -8,10 +8,14 @@
                     loading="lazy"
                     width="455"
                     height="188"
-                    alt=""
-                    role="presentation"
+                    alt="Фото дома"
                 />
-                <span class="card-label card-label_blue pos-abs fw-b">Independent living</span>
+                <span v-if="card.type === 'IndependentLiving'" class="card-label card-label_blue pos-abs fw-b"
+                    >Independent living</span
+                >
+                <span v-if="card.type === 'SupportAvailable'" class="card-label card-label_orange pos-abs fw-b"
+                    >Restaurant &amp; Support available</span
+                >
             </span>
             <span class="card-sale__wrap-text d-xs-block">
                 <span class="card-sale__title fw-b d-xs-block">
@@ -21,12 +25,12 @@
                 <span class="card-sale__text card-sale__text_title d-xs-block">{{ card.address }}</span>
                 <span class="card-sale__text card-sale__text_price d-xs-block">
                     New Properties for Sale from
-                    <span class="fw-b">£{{ card.price }}</span>
+                    <span class="fw-b">£{{ card.price | price }}</span>
                 </span>
                 <span class="card-sale__av d-xs-block">Shared Ownership Available</span>
             </span>
         </span>
-    </a>
+    </router-link>
 </template>
 <script>
 export default {

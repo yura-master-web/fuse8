@@ -6,6 +6,12 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+Vue.mixin({
+    filters: {
+        price: price => new Intl.NumberFormat('ja-JP').format(price),
+    },
+})
+
 new Vue({
     router,
     store,

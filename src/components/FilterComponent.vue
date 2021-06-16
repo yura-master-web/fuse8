@@ -1,5 +1,5 @@
 <template>
-    <form class="filter">
+    <form class="filter" @submit.prevent="() => {}">
         <label class="filter__lable fw-b d-xs-flex align-items-xs-center">
             Filter
             <input class="filter__input" type="text" v-model="search" />
@@ -17,8 +17,9 @@ export default {
             get() {
                 return ''
             },
-            set(val) {
-                console.log(val)
+            set(searchString) {
+                const query = searchString.length >= 3 ? searchString : ''
+                this.$emit('search', query)
             },
         },
     },
