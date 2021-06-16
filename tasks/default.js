@@ -5,7 +5,7 @@ import {
     prettierCss /* , buildTailwind, buildBootstrap */,
 } from './styles'
 import {icons} from './icons'
-// import {copy} from './copy'
+import {copy} from './copy'
 import {templates, templatesLint} from './templates'
 import {server} from './server'
 import {watch} from './watch'
@@ -15,6 +15,7 @@ import {watch} from './watch'
 gulp.task(
     'default',
     gulp.series(
+        copy,
         styles,
         icons,
         // buildTailwind,

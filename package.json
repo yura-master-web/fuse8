@@ -8,7 +8,7 @@
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "start": "cross-env WEBPACK_WATCH=true LAOUTS=true gulp default --inspect --watch-poll",
+    "start": "rimraf src/assets/fonts src/assets/images && cross-env WEBPACK_WATCH=true LAOUTS=true gulp default --inspect --watch-poll",
     "templates": "cross-env WEBPACK_WATCH=true LAOUTS=true gulp templates",
     "production": "npm-run-all templates prettier-html",
     "make-block": "cross-env LAOUTS=true babel-node make-block.js",
