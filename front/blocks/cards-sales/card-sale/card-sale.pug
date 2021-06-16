@@ -1,6 +1,6 @@
 mixin card-sale(obj)
-    +b('a').card-sale.d-xs-block(href=jv0)&attributes(attributes)
-        +e.content.d-xs-block
+    +b.card-sale&attributes(attributes)
+        +e('a').content.d-xs-block(href=jv0)
             +e.wrap-img.pos-rel.ovh.d-xs-flex.justify-content-xs-center
                 +e('img').img(
                     src=obj.img,

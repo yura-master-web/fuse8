@@ -1,6 +1,6 @@
 <template>
-    <router-link class="card-sale d-xs-block col-lg-4 col-sm-6 col-xs-12" :to="`/details/${card.id}`">
-        <span class="card-sale__content d-xs-block">
+    <div class="card-sale col-lg-4 col-sm-6 col-xs-12">
+        <router-link class="card-sale__content d-xs-block" :to="`/details/${card.id}`">
             <span class="card-sale__wrap-img pos-rel ovh d-xs-flex justify-content-xs-center">
                 <img
                     class="card-sale__img"
@@ -29,8 +29,8 @@
                 </span>
                 <span class="card-sale__av d-xs-block">Shared Ownership Available</span>
             </span>
-        </span>
-    </router-link>
+        </router-link>
+    </div>
 </template>
 <script>
 export default {
