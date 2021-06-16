@@ -13,5 +13,5 @@ mixin card-sale(obj)
             +e.wrap-text.d-xs-block
                 +e.title.fw-b.d-xs-block #{ obj.title } <br />
                 +e.text_title.d-xs-block #{ obj.address }
-                +e.text_price.d-xs-block #{ obj.project } <span>#{ obj.price }</span>
+                +e.text_price.d-xs-block #{ obj.project } <span class="fw-b">£#{ new Intl.NumberFormat('ja-JP').format(obj.price) }</span>
                 +e.av.d-xs-block #{ obj.available }

@@ -93,7 +93,14 @@ module.exports = {
         'handle-callback-err': 0,
         'id-length': [2, {min: 1, max: 40}],
         // indent: [2, 'tab', {SwitchCase: 1}],
-        indent: [2, 4, {SwitchCase: 1}],
+        // indent: [2, 4, {SwitchCase: 1}],
+        indent: [
+            2,
+            4,
+            {
+                ignoredNodes: ['TemplateLiteral'],
+            },
+        ],
         'key-spacing': [2, {beforeColon: false, afterColon: true}],
         'lines-around-comment': 0,
         'linebreak-style': [0, 'unix'],
@@ -214,6 +221,7 @@ module.exports = {
         // semi: [2, 'always'],
         'semi-spacing': [2, {before: false, after: true}],
         'sort-vars': 0,
+        'template-curly-spacing': 0,
         'keyword-spacing': [
             2,
             {

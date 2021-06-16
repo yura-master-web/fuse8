@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import '/front/styles/app.styl'
+import '@/assets/css/app.min.css'
 import App from './App.vue'
 import router from './router'
 import store from './store'
